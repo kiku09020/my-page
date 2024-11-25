@@ -6,7 +6,6 @@ function App() {
   return (
     <>
       <Scaffold>
-        <p>Test</p>
         <Outlet />
       </Scaffold>
     </>

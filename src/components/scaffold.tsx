@@ -1,6 +1,8 @@
 import { AppBar, Box, Toolbar } from "@mui/material";
 import { DrawerProvider } from "../features/drawer/useDrawer";
 import { DrawerToggleButton, NavigationDrawer } from "../features/drawer/drawer";
+import { routes } from "../features/router/route-model";
+import { Link } from "react-router-dom";
 
 type Props = {
   children: React.ReactNode;
@@ -18,7 +20,7 @@ export default function Scaffold({ children }: Props) {
             <Box sx={{ display: { xs: "block", sm: "none" } }}>
               <DrawerToggleButton />
             </Box>
-            <h1>App</h1>
+            <h2>App</h2>
           </Toolbar>
         </AppBar>
 
@@ -26,9 +28,11 @@ export default function Scaffold({ children }: Props) {
         <Box>
           <NavigationDrawer width={drawerWidth}>
             <ul>
-              <li>Menu1</li>
-              <li>Menu2</li>
-              <li>Menu3</li>
+              {routes.map((route) => (
+                <li key={route.path}>
+                  <Link to={route.path}>{route.linkName}</Link>
+                </li>
+              ))}
             </ul>
           </NavigationDrawer>
         </Box>
