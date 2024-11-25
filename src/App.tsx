@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import "./App.css";
-import Scaffold from "./components/scaffold";
+import Scaffold from "./features/scaffold/scaffold";
 
 function App() {
   return (
