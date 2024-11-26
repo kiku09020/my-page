@@ -1,4 +1,6 @@
+import Contact from "../../pages/contact/contact";
 import Home from "../../pages/home/home";
+import Products from "../../pages/products/products";
 import Profile from "../../pages/profile/profile";
 
 type Route = {
@@ -17,5 +19,16 @@ export const routes: Route[] = [
     path: "/profile",
     linkName: "Profile",
     element: <Profile />,
+  },
+
+  {
+    path: "/products",
+    linkName: "Products",
+    element: <Products />,
+  },
+  {
+    path: "/contact",
+    linkName: "Contact",
+    element: <Contact />,
   },
 ];

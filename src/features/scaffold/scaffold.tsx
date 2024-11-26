@@ -43,7 +43,10 @@ export default function Scaffold({ children }: Props) {
         </Box>
 
         {/* Contents */}
-        <Box>{children}</Box>
+        <Box>
+          <h1>{}</h1>
+          {children}
+        </Box>
       </Box>
     </DrawerProvider>
   );
