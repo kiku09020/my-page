@@ -7,9 +7,14 @@ query {
   productCollection {
     items {
       title
-      link
       date
       description
+      productLinksCollection{
+        items{
+          url
+          title
+        }
+      }
       tags
       frameworks
       headerImage {
@@ -18,6 +23,7 @@ query {
     }
   }
 }
+
 `;
 
 export default function Products() {
@@ -32,15 +38,9 @@ export default function Products() {
   return (
     <>
       <p>Count:{products.length}</p>
-      <ul>
-        {products.map((product) => {
-          return (
-            <li key={product.title}>
-              <ProductHeader {...product} />
-            </li>
-          );
-        })}
-      </ul>
+      {products.map((product) => {
+        return <ProductHeader {...product} />;
+      })}
     </>
   );
 }
