@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { ProductProps } from "../types";
 import {
-  Button,
+  Backdrop,
   Card,
   CardActionArea,
   CardContent,
   CardMedia,
+  Fade,
   Modal,
-  Stack,
   Typography,
+  Zoom,
 } from "@mui/material";
 import ProductDetail from "./ProductDetail";
 import ChipStack from "../../../../components/ChipStack";
-import { LocalOffer } from "@mui/icons-material";
 
 export default function ProductHeader(product: ProductProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,8 +44,18 @@ export default function ProductHeader(product: ProductProps) {
         </CardActionArea>
       </Card>
 
-      <Modal open={isOpen} onClose={handleClose}>
-        <ProductDetail {...product} />
+      <Modal
+        open={isOpen}
+        onClose={handleClose}
+        closeAfterTransition
+        slotProps={{ backdrop: { timeout: 500 } }}
+        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      >
+        <Zoom in={isOpen}>
+          <div>
+            <ProductDetail {...product} />
+          </div>
+        </Zoom>
       </Modal>
     </div>
   );

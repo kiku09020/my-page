@@ -4,13 +4,13 @@ import ProductHeader from "../../features/contentful/products/components/Product
 
 const productsQuery = `
 query {
-  productCollection {
+  productCollection{
     items {
       title
       date
       description
-      productLinksCollection{
-        items{
+      productLinksCollection(limit: 3) {
+        items {
           url
           title
         }
@@ -20,9 +20,16 @@ query {
       headerImage {
         url
       }
+      imagesCollection(limit: 6) {
+        items {
+          url
+          title
+        }
+      }
     }
   }
 }
+
 
 `;
 

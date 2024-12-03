@@ -13,4 +13,11 @@ export type ProductProps = {
       title: string;
     }[];
   };
+
+  imagesCollection: {
+    items: {
+      url: string;
+      title: string;
+    }[];
+  };
 };
