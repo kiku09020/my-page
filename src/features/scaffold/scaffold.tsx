@@ -15,7 +15,7 @@ export default function Scaffold({ children }: Props) {
 
   return (
     <DrawerProvider>
-      <Box>
+      <Box sx={{ display: "flex" }}>
         {/* AppBar */}
         <AppBar sx={{ width: { sm: `calc(100% - ${drawerWidth}px)` } }}>
           <Toolbar>
@@ -29,22 +29,20 @@ export default function Scaffold({ children }: Props) {
         </AppBar>
 
         {/* Drawer */}
-        <Box>
-          <NavigationDrawer width={drawerWidth}>
-            <img src={appInfo.logo} width={64} className="mx-auto max-w-md" />
-            <ul>
-              {routes.map((route) => (
-                <li key={route.path}>
-                  <Link href={route.path}>{route.linkName}</Link>
-                </li>
-              ))}
-            </ul>
-          </NavigationDrawer>
-        </Box>
+        <NavigationDrawer width={drawerWidth}>
+          <img src={appInfo.logo} width={64} className="mx-auto max-w-md" />
+          <ul>
+            {routes.map((route) => (
+              <li key={route.path}>
+                <Link href={route.path}>{route.linkName}</Link>
+              </li>
+            ))}
+          </ul>
+        </NavigationDrawer>
 
         {/* Contents */}
-        <Box>
-          <h1>{}</h1>
+        <Box sx={{ width: { sm: `calc(100% - ${drawerWidth}px)` } }}>
+          <Toolbar />
           {children}
         </Box>
       </Box>

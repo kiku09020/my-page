@@ -1,4 +1,4 @@
-import { Button, Drawer, IconButton, SwipeableDrawer } from "@mui/material";
+import { Box, Drawer, IconButton, SwipeableDrawer } from "@mui/material";
 import { useDrawer } from "./useDrawer";
 import { Menu } from "@mui/icons-material";
 
@@ -11,7 +11,7 @@ export function NavigationDrawer({ children, width }: DrawerProps) {
   const { isOpen, setIsOpen } = useDrawer();
 
   return (
-    <>
+    <Box component="nav" sx={{ width: { sm: width }, flexShrink: { sm: 0 } }}>
       {/* モバイル用 */}
       <SwipeableDrawer
         variant="temporary"
@@ -31,7 +31,7 @@ export function NavigationDrawer({ children, width }: DrawerProps) {
       >
         {children}
       </Drawer>
-    </>
+    </Box>
   );
 }
 

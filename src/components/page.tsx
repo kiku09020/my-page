@@ -1,3 +1,5 @@
+import { Typography } from "@mui/material";
+
 type PageProps = {
   title: string;
   children: React.ReactNode;
@@ -6,7 +8,7 @@ type PageProps = {
 export default function Page({ title, children }: PageProps) {
   return (
     <div>
-      <h1>{title}</h1>
+      <Typography variant="h4">{title}</Typography>
       {children}
     </div>
   );
