@@ -1,9 +1,4 @@
-type AppInfo = {
-  title: string;
-  logo: string;
-};
-
-export const appInfo: AppInfo = {
+export const appInfo = {
   title: "きくぴぃのホームページ",
   logo: "/WANWAN_.png",
 };

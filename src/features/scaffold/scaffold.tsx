@@ -17,12 +17,20 @@ export default function Scaffold({ children }: Props) {
     <DrawerProvider>
       <Box sx={{ display: "flex" }}>
         {/* AppBar */}
-        <AppBar sx={{ width: { sm: `calc(100% - ${drawerWidth}px)` } }}>
+        <AppBar
+          sx={{ width: { sm: `calc(100% - ${drawerWidth}px)` }, ml: { sm: `${drawerWidth}px` } }}
+        >
           <Toolbar>
             <Box sx={{ display: { xs: "block", sm: "none" } }}>
               <DrawerToggleButton />
             </Box>
-            <Link href="/" variant="inherit" color="textPrimary" underline="none">
+            <Link
+              className="hover:animate-vibrate-3 hover:text-white hover:font-bold"
+              href="/"
+              variant="inherit"
+              color="textPrimary"
+              underline="none"
+            >
               {appInfo.title}
             </Link>
           </Toolbar>
@@ -30,7 +38,11 @@ export default function Scaffold({ children }: Props) {
 
         {/* Drawer */}
         <NavigationDrawer width={drawerWidth}>
-          <img src={appInfo.logo} width={64} className="mx-auto max-w-md" />
+          <img
+            src={appInfo.logo}
+            width={64}
+            className="mx-auto max-w-md hover:animate-jello-vertical"
+          />
           <ul>
             {routes.map((route) => (
               <li key={route.path}>
@@ -41,7 +53,12 @@ export default function Scaffold({ children }: Props) {
         </NavigationDrawer>
 
         {/* Contents */}
-        <Box sx={{ width: { sm: `calc(100% - ${drawerWidth}px)` } }}>
+        <Box
+          sx={{
+            width: { xs: "100%", sm: `calc(100% - ${drawerWidth}px)` },
+            ml: { sm: `${drawerWidth}` },
+          }}
+        >
           <Toolbar />
           {children}
         </Box>

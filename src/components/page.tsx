@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 type PageProps = {
   title: string;
@@ -7,9 +7,9 @@ type PageProps = {
 
 export default function Page({ title, children }: PageProps) {
   return (
-    <div>
-      <Typography variant="h4">{title}</Typography>
+    <Box>
+      <Typography variant="h3">{title}</Typography>
       {children}
-    </div>
+    </Box>
   );
 }
