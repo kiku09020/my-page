@@ -11,6 +11,7 @@ export type ProductProps = {
     items: {
       url: string;
       title: string;
+      isVideoLink: boolean;
     }[];
   };
 

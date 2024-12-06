@@ -1,6 +1,7 @@
 import { ProductProps } from "../../features/contentful/products/types";
 import useSWR from "swr";
 import ProductHeader from "../../features/contentful/products/components/ProductHeader";
+import { Grid2 } from "@mui/material";
 
 const productsQuery = `
 query {
@@ -9,10 +10,11 @@ query {
       title
       date
       description
-      productLinksCollection(limit: 3) {
+      productLinksCollection(limit: 5) {
         items {
           url
           title
+          isVideoLink
         }
       }
       tags
@@ -37,6 +39,11 @@ export default function Products() {
   const { data, error, isLoading } = useSWR(productsQuery);
   const products: ProductProps[] = data?.productCollection?.items || [];
 
+  products.filter((product) => {
+    product.date = new Date(product.date);
+    return product;
+  });
+
   if (error) return <div>Failed to load</div>;
   if (isLoading) return <div>Loading...</div>;
 
@@ -44,10 +51,13 @@ export default function Products() {
 
   return (
     <>
-      <p>Count:{products.length}</p>
-      {products.map((product) => {
-        return <ProductHeader {...product} />;
-      })}
+      <Grid2 container spacing={2} sx={{ pt: 4, justifyContent: "center" }}>
+        {products
+          .sort((a, b) => b.date.getTime() - a.date.getTime())
+          .map((product) => {
+            return <ProductHeader {...product} />;
+          })}
+      </Grid2>
     </>
   );
 }

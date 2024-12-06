@@ -9,7 +9,7 @@ export default function Theme() {
     },
     typography: {
       fontFamily: ["DotGothic16", "Noto Sans JP"].join(","),
-      fontSize: 12,
+      fontSize: 16,
     },
   });
 
