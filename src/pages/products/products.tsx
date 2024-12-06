@@ -2,6 +2,8 @@ import { ProductProps } from "../../features/contentful/products/types";
 import useSWR from "swr";
 import ProductHeader from "../../features/contentful/products/components/ProductHeader";
 import { Grid2 } from "@mui/material";
+import { Suspense } from "react";
+import LoadingSpinner from "../../features/contentful/products/components/LoadingSpinner";
 
 const productsQuery = `
 query {
@@ -36,7 +38,7 @@ query {
 `;
 
 export default function Products() {
-  const { data, error, isLoading } = useSWR(productsQuery);
+  const { data, error } = useSWR(productsQuery);
   const products: ProductProps[] = data?.productCollection?.items || [];
 
   products.filter((product) => {
@@ -45,19 +47,20 @@ export default function Products() {
   });
 
   if (error) return <div>Failed to load</div>;
-  if (isLoading) return <div>Loading...</div>;
 
   console.log(`Data:${data}`);
 
   return (
     <>
-      <Grid2 container spacing={2} sx={{ pt: 4, justifyContent: "center" }}>
-        {products
-          .sort((a, b) => b.date.getTime() - a.date.getTime())
-          .map((product) => {
-            return <ProductHeader {...product} />;
-          })}
-      </Grid2>
+      <Suspense fallback={<LoadingSpinner />}>
+        <Grid2 container spacing={2} sx={{ pt: 4, justifyContent: "center" }}>
+          {products
+            .sort((a, b) => b.date.getTime() - a.date.getTime())
+            .map((product) => {
+              return <ProductHeader {...product} />;
+            })}
+        </Grid2>
+      </Suspense>
     </>
   );
 }

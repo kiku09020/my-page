@@ -14,6 +14,7 @@ function App() {
           <SWRConfig
             value={{
               fetcher: contentfulFetcher(),
+              suspense: true,
             }}
           >
             <Outlet />

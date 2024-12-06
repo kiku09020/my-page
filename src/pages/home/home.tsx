@@ -1,6 +1,8 @@
 import { Avatar, Box, Button, Stack, Typography } from "@mui/material";
 import WavyText from "../../components/AnimationText/WavyText";
 import LinkStack from "../../features/contentful/links/components/LinkStack";
+import LoadingSpinner from "../../features/contentful/products/components/LoadingSpinner";
+import { Suspense } from "react";
 
 export default function Home() {
   const userIcon = "/motio.svg";
@@ -27,7 +29,9 @@ export default function Home() {
       </Stack>
 
       {/* Links */}
-      <LinkStack />
+      <Suspense fallback={<LoadingSpinner />}>
+        <LinkStack />
+      </Suspense>
     </>
   );
 }
