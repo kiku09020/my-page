@@ -15,6 +15,10 @@ export default function LinkComponent(link: LinkProps) {
         mt: 2,
         borderRadius: 6,
         textTransform: "none",
+
+        "&:hover": {
+          color: "white",
+        },
       }}
     >
       <Avatar variant="rounded" sx={{ bgcolor: "white", borderRadius: 4 }}>

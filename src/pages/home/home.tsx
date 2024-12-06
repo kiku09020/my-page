@@ -10,9 +10,14 @@ export default function Home() {
       {/* 情報 */}
       <WavyText text="Welcome to my page!" moveY={5} textDelay={0.05} />
       <Stack direction="column" sx={{ display: "flex", justifyContent: "center", mt: 8 }}>
-        <Avatar className="scale-[125%] transition " sx={{ width: 64, height: 64, m: "auto" }}>
-          <Box component="img" src={userIcon} sx={{ width: "100%" }} />
-        </Avatar>
+        <Button href="/Profile" sx={{ width: 64, height: 64, m: "auto" }}>
+          <Avatar
+            className="hover:scale-[125%] transition "
+            sx={{ width: 64, height: 64, m: "auto" }}
+          >
+            <Box component="img" src={userIcon} sx={{ width: "100%" }} />
+          </Avatar>
+        </Button>
         <Typography align="center" sx={{ mt: 2 }}>
           きくぴぃ
         </Typography>
