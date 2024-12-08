@@ -5,7 +5,12 @@ import { FormContext } from "../../models/form/formContext";
 import { FormData } from "../../models/form/formSchema";
 import { FromFieldProps } from "../../models/form/formField";
 
-export default function FormField({ name, label, isRequired = false }: FromFieldProps<FormData>) {
+export default function FormField({
+  name,
+  label,
+  isRequired = false,
+  isMultiline = false,
+}: FromFieldProps<FormData>) {
   const formContext = useContext(FormContext);
 
   return (
@@ -18,8 +23,11 @@ export default function FormField({ name, label, isRequired = false }: FromField
           label={label}
           fullWidth
           required={isRequired}
+          multiline={isMultiline}
+          rows={isMultiline ? 4 : 1}
           error={fieldState.error ? true : false}
           helperText={fieldState.error ? fieldState.error.message : ""}
+          sx={{ pb: 2 }}
         />
       )}
     />

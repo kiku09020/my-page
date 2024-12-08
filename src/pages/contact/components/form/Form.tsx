@@ -5,16 +5,20 @@ import { FormData, formSchema } from "../../models/form/formSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import zodErrorMap from "../../models/zodErrorMap";
 import { FromFieldProps } from "../../models/form/formField";
+import { Box, Button } from "@mui/material";
+import sendEmail from "../../../features/emailjs";
+import { useRef } from "react";
 
 //------------------------------------------------------------
 
-const FormFields: FromFieldProps<FormData>[] = [
+const formFields: FromFieldProps<FormData>[] = [
   { name: "name", label: "名前", isRequired: true },
   { name: "email", label: "メールアドレス", isRequired: true },
-  { name: "message", label: "メッセージ", isRequired: true },
+  { name: "message", label: "メッセージ", isRequired: true, isMultiline: true },
 ];
 
 export default function Form() {
+  const formRef = useRef<HTMLFormElement>(null);
   const {
     control,
     handleSubmit,
@@ -23,20 +27,33 @@ export default function Form() {
 
   zodErrorMap();
 
-  const onSubmit = handleSubmit((data: FormData) => {});
+  const onSubmit = handleSubmit(async (data: FormData) => {
+    try {
+      await sendEmail(formRef);
+      console.log("Email sent successfully");
+      alert("送信に成功しました");
+    } catch (error) {
+      console.error("Error sending email:", error);
+      alert("送信に失敗しました");
+    }
+  });
 
   return (
-    <>
-      <form onSubmit={onSubmit} aria-label="">
-        <FormContext.Provider value={{ control, errors }}>
-          {FormFields.map((props) => (
-            <FormField key={props.name} {...props} />
-          ))}
-        </FormContext.Provider>
-        <button type="submit" disabled={!isValid}>
-          送信
-        </button>
-      </form>
-    </>
+    <Box
+      component="form"
+      sx={{ display: "flex", flexDirection: "column", px: 4, pt: 4 }}
+      onSubmit={onSubmit}
+      ref={formRef}
+    >
+      <FormContext.Provider value={{ control, errors }}>
+        {formFields.map((props) => (
+          <FormField key={props.name} {...props} />
+        ))}
+      </FormContext.Provider>
+
+      <Button type="submit" variant="contained" disabled={!isValid} sx={{ m: "0 auto" }}>
+        送信
+      </Button>
+    </Box>
   );
 }
