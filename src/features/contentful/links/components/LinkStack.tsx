@@ -1,6 +1,6 @@
 import { Box, Divider, Stack, Typography } from "@mui/material";
 import useSWR from "swr";
-import { LinkProps } from "../types";
+import { LinkProps } from "../linkTypes";
 import LinkComponent from "./LinkComponent";
 
 const query = `

@@ -1,5 +1,5 @@
 import { Avatar, Box, Button, Link, Typography } from "@mui/material";
-import { LinkProps } from "../types";
+import { LinkProps } from "../linkTypes";
 
 export default function LinkComponent(link: LinkProps) {
   return (

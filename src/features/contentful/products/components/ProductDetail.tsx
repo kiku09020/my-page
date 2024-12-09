@@ -1,4 +1,4 @@
-import { ProductProps } from "../types";
+import { ProductProps } from "../productTypes";
 import { Box, Card, Divider, Link, Stack, Typography } from "@mui/material";
 import ChipStack from "../../../../components/ChipStack";
 import { HomeRepairService, LocalOffer } from "@mui/icons-material";

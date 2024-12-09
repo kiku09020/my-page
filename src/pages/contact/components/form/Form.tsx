@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import zodErrorMap from "../../models/zodErrorMap";
 import { FromFieldProps } from "../../models/form/formField";
 import { Box, Button } from "@mui/material";
-import sendEmail from "../../../features/emailjs";
+import sendEmail from "../../../../features/emailjs/emailjs";
 import { useRef } from "react";
 import Recaptcha, { executeRecaptcha } from "../Racaptcha";
 

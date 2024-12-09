@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ProductProps } from "../types";
+import { ProductProps } from "../productTypes";
 import {
   Backdrop,
   Box,

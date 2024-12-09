@@ -1,4 +1,4 @@
-import { ProductProps } from "../../features/contentful/products/types";
+import { ProductProps } from "../../features/contentful/products/productTypes";
 import useSWR from "swr";
 import ProductHeader from "../../features/contentful/products/components/ProductHeader";
 import { Grid2 } from "@mui/material";

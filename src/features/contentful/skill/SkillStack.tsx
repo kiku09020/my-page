@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { SkillProps } from "../../types/skillTypes";
+import { SkillProps } from "./skillTypes";
 import { Box, Stack, Typography } from "@mui/material";
 import SkillHeader from "./SkillHeader";
 

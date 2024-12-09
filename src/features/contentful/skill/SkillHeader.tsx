@@ -1,5 +1,5 @@
 import { Box, Card, CardActionArea, CardContent, Modal, Rating, Typography } from "@mui/material";
-import { SkillProps } from "../../types/skillTypes";
+import { SkillProps } from "./skillTypes";
 import { useState } from "react";
 import SkillDetail from "./SkillDetail";
 

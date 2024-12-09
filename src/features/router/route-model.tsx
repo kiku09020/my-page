@@ -1,7 +1,7 @@
-import Contact from "../../pages/contact/contact";
-import Home from "../../pages/home/home";
-import Products from "../../pages/products/products";
-import Profile from "../../pages/profile/profile";
+import Contact from "../../pages/contact/Contact";
+import Home from "../../pages/home/Home";
+import Products from "../../pages/products/Products";
+import Profile from "../../pages/profile/Profile";
 
 type Route = {
   path: string;
