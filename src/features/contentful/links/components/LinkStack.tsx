@@ -2,6 +2,7 @@ import { Box, Divider, Stack, Typography } from "@mui/material";
 import useSWR from "swr";
 import { LinkProps } from "../linkTypes";
 import LinkComponent from "./LinkComponent";
+import AnchorLinkHeader from "../../../../components/AnchorLinkHeader";
 
 const query = `
 query {
@@ -41,7 +42,7 @@ export default function LinkStack() {
 
   return (
     <Box>
-      <Typography variant="h4">Links</Typography>
+      <AnchorLinkHeader title="Links" id="links" />
       <Stack direction="column" sx={{ display: "flex", justifyContent: "center", mt: 8 }}>
         {
           // ソートされたカテゴリーごとにリンクを表示

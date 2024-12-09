@@ -2,6 +2,7 @@ import useSWR from "swr";
 import { SkillProps } from "./skillTypes";
 import { Box, Stack, Typography } from "@mui/material";
 import SkillHeader from "./SkillHeader";
+import AnchorLinkHeader from "../../../components/AnchorLinkHeader";
 
 const skillQuery = `
 query {
@@ -41,7 +42,7 @@ export default function SkillStack() {
 
   return (
     <Box sx={{ pt: 4 }}>
-      <Typography variant="h4">Skills</Typography>
+      <AnchorLinkHeader title="Skills" id="skills" />
       <Stack direction="column" sx={{ display: "flex", justifyContent: "center" }}>
         {sortedCategories.map((category) => {
           const categorySkills = categoryGroups[category];

@@ -1,10 +1,12 @@
-import { AppBar, Box, Toolbar } from "@mui/material";
+import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 import { DrawerProvider } from "../drawer/useDrawer";
 import { DrawerToggleButton, NavigationDrawer } from "../drawer/drawer";
 import { routes } from "../router/route-model";
 import { Link } from "@mui/material";
+import { HashLink } from "react-router-hash-link";
 
 import { appInfo } from "./app-model";
+import { useLocation } from "react-router-dom";
 
 type Props = {
   children: React.ReactNode;
@@ -12,6 +14,18 @@ type Props = {
 
 export default function Scaffold({ children }: Props) {
   const drawerWidth = 240;
+
+  const getIsCurrentRoute = (path: string) => {
+    return useLocation().pathname === path;
+  };
+
+  const scrollWithOffset = (el) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.scrollY;
+    const yOffset = -64;
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
+  };
+
+  //------------------------------------------------------------
 
   return (
     <DrawerProvider>
@@ -43,13 +57,44 @@ export default function Scaffold({ children }: Props) {
             width={64}
             className="mx-auto max-w-md hover:animate-jello-vertical"
           />
-          <ul>
-            {routes.map((route) => (
-              <li key={route.path}>
-                <Link href={route.path}>{route.linkName}</Link>
-              </li>
-            ))}
-          </ul>
+          <Box display={"flex"} flexDirection={"column"} sx={{ pl: 2 }}>
+            {routes.map((route) => {
+              const isCurrentRoute = getIsCurrentRoute(route.path);
+
+              return (
+                <>
+                  <Box display={"flex"} flexDirection={"row"}>
+                    {/* ページリンク */}
+                    <Link
+                      key={route.path}
+                      href={route.path}
+                      fontWeight={isCurrentRoute ? "bold" : "normal"}
+                    >
+                      {route.linkName}
+                    </Link>
+                    {/* 現在のページの目印フラミンゴ */}
+                    {isCurrentRoute && <Typography sx={{ userSelect: "none" }}>🦩</Typography>}
+                  </Box>
+                  {/* 現在のページ内のハッシュリンク一覧 */}
+                  {isCurrentRoute && route.hashLinks && (
+                    <Box>
+                      {route.hashLinks?.map((hashLink) => (
+                        <Link>
+                          <HashLink
+                            to={`#${hashLink}`}
+                            scroll={scrollWithOffset}
+                            style={{ paddingLeft: 16 }}
+                          >
+                            {hashLink.charAt(0).toUpperCase() + hashLink.slice(1)}
+                          </HashLink>
+                        </Link>
+                      ))}
+                    </Box>
+                  )}
+                </>
+              );
+            })}
+          </Box>
         </NavigationDrawer>
 
         {/* Contents */}

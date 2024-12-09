@@ -5,7 +5,9 @@ export default function SkillDetail(skill: SkillProps) {
   return (
     <Card sx={{ width: 768, p: 4, borderRadius: 4 }}>
       {/* タイトル */}
-      <Typography variant="h5">{skill.title}</Typography>
+      <Typography component={"div"} className="skills" variant="h5">
+        {skill.title}
+      </Typography>
 
       {/* アイコン */}
       <Box

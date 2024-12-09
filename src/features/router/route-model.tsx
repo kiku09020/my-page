@@ -7,6 +7,7 @@ type Route = {
   path: string;
   linkName: string;
   element: React.ReactNode;
+  hashLinks?: string[];
 };
 
 export const routes: Route[] = [
@@ -14,11 +15,13 @@ export const routes: Route[] = [
     path: "/",
     linkName: "Home",
     element: <Home />,
+    hashLinks: ["links"],
   },
   {
     path: "/profile",
     linkName: "Profile",
     element: <Profile />,
+    hashLinks: ["skills"],
   },
 
   {
