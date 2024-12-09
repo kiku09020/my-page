@@ -5,6 +5,7 @@ export type SkillProps = {
     category: string;
   };
   iconLink: string;
+  isBeginner: boolean;
   years: number;
   rating: number;
   description: string;

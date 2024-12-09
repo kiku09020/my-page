@@ -13,6 +13,7 @@ query {
         category
       }
       iconLink
+      isBeginner
       years
       rating
       description
@@ -39,9 +40,9 @@ export default function SkillStack() {
   if (error) return <div>Failed to load</div>;
 
   return (
-    <Box>
+    <Box sx={{ pt: 4 }}>
       <Typography variant="h4">Skills</Typography>
-      <Stack direction="column" sx={{ display: "flex", justifyContent: "center", mt: 8 }}>
+      <Stack direction="column" sx={{ display: "flex", justifyContent: "center" }}>
         {sortedCategories.map((category) => {
           const categorySkills = categoryGroups[category];
 
@@ -49,7 +50,7 @@ export default function SkillStack() {
             <Box key={category}>
               {/* カテゴリ */}
               <Typography variant="h6">{category}</Typography>
-              <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
+              <Stack direction="row" spacing={2} sx={{ pt: 2, pb: 4 }}>
                 {categorySkills.map((skill) => (
                   <SkillHeader key={skill.title} {...skill} />
                 ))}
