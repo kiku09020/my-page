@@ -22,10 +22,9 @@ query {
 `;
 
 export default function LinkStack() {
-  const { data, error, isLoading } = useSWR(query);
+  const { data, error } = useSWR(query);
   const links: LinkProps[] = data?.linkCollection?.items || [];
   if (error) return <div>Failed to load</div>;
-  if (isLoading) return <div>Loading...</div>;
 
   // カテゴリーごとにリンクをグループ化
   const categoryGroups = links.reduce((acc: { [key: string]: LinkProps[] }, link) => {
@@ -59,9 +58,9 @@ export default function LinkStack() {
 
                 {/* リンク一覧 */}
                 <Stack direction="column" sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-                  {categoryLinks.map((link) => {
-                    return <LinkComponent key={link.link} {...link} />;
-                  })}
+                  {categoryLinks.map((link) => (
+                    <LinkComponent key={link.link} {...link} />
+                  ))}
                 </Stack>
               </Box>
             );
