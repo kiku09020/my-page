@@ -1,4 +1,4 @@
-import { AppBar, Box, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Stack, Toolbar, Typography } from "@mui/material";
 import { DrawerProvider } from "../drawer/useDrawer";
 import { DrawerToggleButton, NavigationDrawer } from "../drawer/drawer";
 import { routes } from "../router/route-model";
@@ -77,7 +77,7 @@ export default function Scaffold({ children }: Props) {
                   </Box>
                   {/* 現在のページ内のハッシュリンク一覧 */}
                   {isCurrentRoute && route.hashLinks && (
-                    <Box>
+                    <Stack>
                       {route.hashLinks?.map((hashLink) => (
                         <Link>
                           <HashLink
@@ -89,7 +89,7 @@ export default function Scaffold({ children }: Props) {
                           </HashLink>
                         </Link>
                       ))}
-                    </Box>
+                    </Stack>
                   )}
                 </>
               );

@@ -21,7 +21,7 @@ export const routes: Route[] = [
     path: "/profile",
     linkName: "Profile",
     element: <Profile />,
-    hashLinks: ["skills"],
+    hashLinks: ["about-me", "skills", "history"],
   },
 
   {

@@ -8,7 +8,7 @@ type AnchorLinkHeaderProps = {
 
 export default function AnchorLinkHeader({ variant = "h4", title, id }: AnchorLinkHeaderProps) {
   return (
-    <Typography variant={variant} component={variant} id={id}>
+    <Typography variant={variant} component={variant} id={id} sx={{ pt: 4 }}>
       {title}
     </Typography>
   );
