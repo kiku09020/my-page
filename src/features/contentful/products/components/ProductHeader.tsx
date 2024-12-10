@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { ProductProps } from "../productTypes";
 import {
-  Backdrop,
   Box,
   Card,
   CardActionArea,
   CardContent,
   CardMedia,
-  Fade,
   Modal,
   Typography,
   useTheme,

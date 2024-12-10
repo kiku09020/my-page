@@ -18,7 +18,7 @@ export default function sendEmail(formRef: React.RefObject<HTMLFormElement>) {
       () => {
         alert("Email sent successfully!");
       },
-      (error) => {
+      () => {
         alert("Email failed to send");
       }
     );

@@ -2,7 +2,7 @@ import { createContext, useContext, useState, ReactNode } from "react";
 
 const DrawerContext = createContext({
   isOpen: false,
-  setIsOpen: (isOpen: boolean) => {},
+  setIsOpen: (_isOpen: boolean) => {},
 });
 
 export function useDrawer() {

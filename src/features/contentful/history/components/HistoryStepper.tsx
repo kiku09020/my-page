@@ -1,13 +1,4 @@
-import {
-  Box,
-  Step,
-  StepContent,
-  StepIcon,
-  StepLabel,
-  Stepper,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { Step, StepContent, StepLabel, Stepper, Typography, useTheme } from "@mui/material";
 import { HistoryProps } from "../historyTypes";
 
 type Props = {

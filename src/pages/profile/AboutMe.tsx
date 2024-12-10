@@ -1,4 +1,4 @@
-import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
+import { Box, List, ListItem, ListItemText } from "@mui/material";
 import AnchorLinkHeader from "../../components/AnchorLinkHeader";
 import AvatarIcon from "../../components/AvatarIcon";
 

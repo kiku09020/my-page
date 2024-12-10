@@ -29,7 +29,7 @@ export default function Form() {
   // スキーマのエラーメッセージのマッピング
   zodErrorMap();
 
-  const onSubmit = handleSubmit(async (data: FormData) => {
+  const onSubmit = handleSubmit(async (_data: FormData) => {
     await executeRecaptcha(); // reCAPTCHA実行
 
     await sendEmail(formRef);

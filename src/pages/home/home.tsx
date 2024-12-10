@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import WavyText from "../../components/AnimationText/WavyText";
 import LinkStack from "../../features/contentful/links/components/LinkStack";
 import LoadingSpinner from "../../features/contentful/products/components/LoadingSpinner";

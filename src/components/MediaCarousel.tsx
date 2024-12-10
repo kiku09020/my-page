@@ -72,7 +72,7 @@ export default function MediaCarousel({ links, width = 384, height = 256 }: Prop
             spacing={1}
             sx={{ display: "flex", justifyContent: "center", pt: 1 }}
           >
-            {scrollSnaps.map((snap, index) => (
+            {scrollSnaps.map((index) => (
               <IconButton
                 onClick={() => onDotButtonClick(index)}
                 sx={index === selectedIndex ? { border: 1 } : { border: 1, opacity: 0.5 }}
