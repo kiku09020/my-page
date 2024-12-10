@@ -1,4 +1,4 @@
-import { Box, Divider, Stack, Typography } from "@mui/material";
+import { Box, Divider, Grid2, Stack, Typography } from "@mui/material";
 import useSWR from "swr";
 import { LinkProps } from "../linkTypes";
 import LinkComponent from "./LinkComponent";
@@ -43,7 +43,7 @@ export default function LinkStack() {
   return (
     <Box>
       <AnchorLinkHeader title="Links" id="links" />
-      <Stack direction="column" sx={{ display: "flex", justifyContent: "center", mt: 8 }}>
+      <Stack direction="column" sx={{ display: "flex", justifyContent: "center", pt: 8, px: 4 }}>
         {
           // ソートされたカテゴリーごとにリンクを表示
           sortedCategories.map((category) => {
@@ -58,11 +58,15 @@ export default function LinkStack() {
                 />
 
                 {/* リンク一覧 */}
-                <Stack direction="column" sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+                <Grid2
+                  container
+                  spacing={2}
+                  sx={{ display: "flex", justifyContent: "center", py: 4, px: 4 }}
+                >
                   {categoryLinks.map((link) => (
                     <LinkComponent key={link.link} {...link} />
                   ))}
-                </Stack>
+                </Grid2>
               </Box>
             );
           })

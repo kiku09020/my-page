@@ -4,17 +4,18 @@ import {
   Card,
   CardActionArea,
   CardContent,
-  Icon,
   Modal,
   Rating,
   Typography,
+  useTheme,
 } from "@mui/material";
-import { SkillProps } from "./skillTypes";
+import { SkillProps } from "../skillTypes";
 import { useState } from "react";
 import SkillDetail from "./SkillDetail";
 
 export default function SkillHeader(skill: SkillProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const theme = useTheme();
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -31,7 +32,6 @@ export default function SkillHeader(skill: SkillProps) {
       <Card
         sx={{
           borderRadius: 4,
-          bgcolor: "gray",
           width: 160,
         }}
       >

@@ -8,23 +8,21 @@ export default function LinkComponent(link: LinkProps) {
       href={link.link}
       target="_blank"
       sx={{
-        display: "flex",
-        justifyItems: "center",
-        width: "50%",
-        m: "auto",
-        mt: 2,
+        justifyContent: "left",
+        width: "256px",
         borderRadius: 6,
-        textTransform: "none",
 
         "&:hover": {
           color: "white",
         },
       }}
     >
-      <Avatar variant="rounded" sx={{ bgcolor: "white", borderRadius: 4 }}>
+      <Avatar variant="rounded" sx={{ ml: 2, bgcolor: "white", borderRadius: 4 }}>
         <Box component="img" src={link.icon.url} sx={{ width: "60%", height: "60%" }} />
       </Avatar>
-      <Typography sx={{ ml: 2, width: "20%" }}>{link.linkName}</Typography>
+      <Typography textTransform={"none"} sx={{ pl: 2 }}>
+        {link.linkName}
+      </Typography>
     </Button>
   );
 }

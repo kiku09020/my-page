@@ -1,5 +1,5 @@
 import { Box, Card, Divider, Rating, Typography } from "@mui/material";
-import { SkillProps } from "./skillTypes";
+import { SkillProps } from "../skillTypes";
 
 export default function SkillDetail(skill: SkillProps) {
   return (

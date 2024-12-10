@@ -1,4 +1,4 @@
-import SkillStack from "../../features/contentful/skill/SkillStack";
+import SkillStack from "../../features/contentful/skill/components/SkillStack";
 import { AboutMe } from "./AboutMe";
 import History from "./History";
 

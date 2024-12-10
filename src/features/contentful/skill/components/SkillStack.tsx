@@ -1,8 +1,8 @@
 import useSWR from "swr";
-import { SkillProps } from "./skillTypes";
+import { SkillProps } from "../skillTypes";
 import { Box, Stack, Typography } from "@mui/material";
 import SkillHeader from "./SkillHeader";
-import AnchorLinkHeader from "../../../components/AnchorLinkHeader";
+import AnchorLinkHeader from "../../../../components/AnchorLinkHeader";
 
 const skillQuery = `
 query {

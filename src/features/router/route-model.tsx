@@ -15,13 +15,13 @@ export const routes: Route[] = [
     path: "/",
     linkName: "Home",
     element: <Home />,
-    hashLinks: ["links"],
+    hashLinks: ["articles", "links"],
   },
   {
     path: "/profile",
     linkName: "Profile",
     element: <Profile />,
-    hashLinks: ["about-me", "skills", "history"],
+    hashLinks: ["about-me", "history", "skills"],
   },
 
   {
