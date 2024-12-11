@@ -5,7 +5,7 @@ type Props = {
 };
 
 export default function AvatarIcon({ enableButton = true }: Props) {
-  const userIcon = "/motio.svg";
+  const userIcon = "motio.svg";
 
   const buttonDisplay = (defaultStyle: string = ""): string => {
     return enableButton ? defaultStyle : "none";

@@ -38,12 +38,12 @@ export function NavigationDrawer({ logo, width }: DrawerProps) {
           const isCurrentRoute = getIsCurrentRoute(route.path);
 
           return (
-            <>
+            <Box key={route.linkName}>
               <Box display={"flex"} flexDirection={"row"}>
                 {/* ページリンク */}
                 <Link
                   key={route.path}
-                  href={route.path}
+                  href={`/my-page/#/${route.path}`}
                   fontWeight={isCurrentRoute ? "bold" : "normal"}
                   fontSize={24}
                 >
@@ -60,19 +60,19 @@ export function NavigationDrawer({ logo, width }: DrawerProps) {
               {isCurrentRoute && route.hashLinks && (
                 <Stack>
                   {route.hashLinks?.map((hashLink) => (
-                    <Link>
+                    <Box key={hashLink}>
                       <HashLink
                         to={`#${hashLink}`}
                         scroll={scrollWithOffset}
-                        style={{ paddingLeft: 16 }}
+                        style={{ paddingLeft: 16, textDecoration: "underline" }}
                       >
                         {hashLink.charAt(0).toUpperCase() + hashLink.slice(1)}
                       </HashLink>
-                    </Link>
+                    </Box>
                   ))}
                 </Stack>
               )}
-            </>
+            </Box>
           );
         })}
       </Box>

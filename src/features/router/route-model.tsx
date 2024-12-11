@@ -12,25 +12,25 @@ type Route = {
 
 export const routes: Route[] = [
   {
-    path: "/",
+    path: "",
     linkName: "Home",
     element: <Home />,
     hashLinks: ["articles", "links"],
   },
   {
-    path: "/profile",
+    path: "profile",
     linkName: "Profile",
     element: <Profile />,
     hashLinks: ["about-me", "history", "skills"],
   },
 
   {
-    path: "/products",
+    path: "products",
     linkName: "Products",
     element: <Products />,
   },
   {
-    path: "/contact",
+    path: "contact",
     linkName: "Contact",
     element: <Contact />,
   },

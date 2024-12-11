@@ -6,6 +6,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 export default defineConfig({
   plugins: [react()],
   base: "/my-page/",
+
   build: {
     chunkSizeWarningLimit: 1024,
     rollupOptions: {
